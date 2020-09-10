@@ -6,10 +6,14 @@ import './assets/index.css';
 import { Component } from 'react';
 
 class App extends Component {
+  criarNota = (titulo,texto) =>{
+    console.log(`Criando nova nota ${titulo}: ${texto}`)
+
+  } 
   render(){
     return (  
       <section className="conteudo">
-        <FormularioCadastro/>
+        <FormularioCadastro criarNota={this.criarNota}/>
         <ListaDeNotas/>
       </section>
     )
