@@ -6,15 +6,23 @@ import './assets/index.css';
 import { Component } from 'react';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      notas:[]
+    };
+  }
   criarNota = (titulo,texto) =>{
-    console.log(`Criando nova nota ${titulo}: ${texto}`)
-
+    const novaNota = {titulo,texto};
+    this.setState({
+      notas:[...this.state.notas,novaNota]
+    });
   } 
   render(){
     return (  
       <section className="conteudo">
         <FormularioCadastro criarNota={this.criarNota}/>
-        <ListaDeNotas/>
+        <ListaDeNotas notas={this.state.notas}/>
       </section>
     )
 };
